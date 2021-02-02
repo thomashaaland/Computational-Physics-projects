@@ -31,7 +31,6 @@ namespace jacobi {
   }
   
   // Finding the maximum matrix element:
-  
   double maxoffdiag ( double ** A, int * k, int * l, int n ) {
     double max = 0.0;
     
