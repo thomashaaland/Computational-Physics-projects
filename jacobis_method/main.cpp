@@ -1,6 +1,7 @@
 #include <iostream>
 #include "jacobi.h"
 
+// This file runs a simple test on the jacobi method.
 int main() {
 
   // Initialise the size of our matrices
