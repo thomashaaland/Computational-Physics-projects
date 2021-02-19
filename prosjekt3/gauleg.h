@@ -1,0 +1,15 @@
+#pragma once
+
+// Definitions
+#define EPS 3.0e-14
+#define MAXIT 10
+#define ZERO 1.0E-10
+#define epsilon 1.0E-6
+
+namespace gauleg {
+  //     Here we define various functions called by the main program:
+  void gauss_laguerre(double *, double *, int, double);
+  void gauleg(double, double, double *, double *, int);
+  double func_6D(double, double, double, double, double, double);
+  double abs_dist(double, double, double, double, double, double);
+}
