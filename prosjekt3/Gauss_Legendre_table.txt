@@ -1,0 +1,6 @@
+ Integration limits in each dimension: a = 0.00000 and b = 10.0000
+ n:        Result with Gauss-Legendre:      Exact result:       Relative error:     Calculation time [s]:
+   10           0.002883950489             0.1927657110              0.9850             0.05746
+   15           0.004149963461             0.1927657110              0.9785              0.5499
+   20           0.004554038743             0.1927657110              0.9764               3.107
+   25           0.004740878540             0.1927657110              0.9754               11.80

@@ -15,8 +15,8 @@
 #define ZERO 1.0E-10
 #define epsilon 1.0E-6
 
-using namespace std;
-ofstream ofile;
+//using namespace std;
+std::ofstream ofile;
 
 //     Here we define various functions called by the main program:
 void gauss_laguerre(double *, double *, int, double);
@@ -36,19 +36,19 @@ int main()
   double int_gauss = 0.0;
   double relatative_error = 0.0;
   double calculation_time = 0.0;
-  string outfilename = "Gauss_Legendre_table.txt";
+  std::string outfilename = "Gauss_Legendre_table.txt";
   //   reserve space in memory for vectors containing the mesh points
   //   weights and function values for the use of the gauss-legendre method
   double *r;
   double *u;
 
-  cout << "Read in integration limits" << endl;
-  cin >> a >> b;
+  std::cout << "Read in integration limits" << std::endl;
+  std::cin >> a >> b;
 
   ofile.open(outfilename);
-  ofile << setiosflags(ios::showpoint | ios::uppercase);
-  ofile << " Integration limits in each dimension: a = " << a << " and b = " << b << endl;
-  ofile << " n:        Result with Gauss-Legendre:      Exact result:       Relative error:     Calculation time [s]:" << endl;
+  ofile << std::setiosflags(std::ios::showpoint | std::ios::uppercase);
+  ofile << " Integration limits in each dimension: a = " << a << " and b = " << b << std::endl;
+  ofile << " n:        Result with Gauss-Legendre:      Exact result:       Relative error:     Calculation time [s]:" << std::endl;
   // loop over all values of n:
   for (int l=0; l < 7; l++) {
 
@@ -86,11 +86,11 @@ int main()
   calculation_time = (finish - start)/(double)CLOCKS_PER_SEC;
   relatative_error = fabs(int_gauss - exact_integral)/exact_integral;
 
-  ofile << setw(5) << setprecision(5) << n;
-  ofile << setw(25) << setprecision(10) << int_gauss;
-  ofile << setw(25) << setprecision(10) << exact_integral;
-  ofile << setw(20) << setprecision(4) << relatative_error;
-  ofile << setw(20) << setprecision(4) << calculation_time << endl;
+  ofile << std::setw(5) << std::setprecision(5) << n;
+  ofile << std::setw(25) << std::setprecision(10) << int_gauss;
+  ofile << std::setw(25) << std::setprecision(10) << exact_integral;
+  ofile << std::setw(20) << std::setprecision(4) << relatative_error;
+  ofile << std::setw(20) << std::setprecision(4) << calculation_time << std::endl;
   delete [] r;
   delete [] u;
   }
