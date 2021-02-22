@@ -1,4 +1,6 @@
 #pragma once
+#include <cmath>
+#include <iostream>
 
 // Declare functions:
 namespace jacobi {
