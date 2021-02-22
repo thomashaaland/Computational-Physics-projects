@@ -6,6 +6,7 @@ CC = g++
 CPPFLAGS = -std=c++11 -O2
 LDFLAGS = -larmadillo
 OBJS = main.o jacobi.o test.o
+OUT = eigvecs_u.dat iterations_n.dat solutions.dat
 
 jacobi : $(OBJS)
 	$(CC) -o $(PROG) $(LDFLAGS) $(OBJS)
@@ -16,4 +17,4 @@ jacobi.o : jacobi.h
 test.o : test.h
 	$(CC) -c $(CPPFLAGS) test.cpp
 clean:
-	rm -f core $(PROG) $(OBJS)
+	rm -f core $(PROG) $(OBJS) $(OUT)
