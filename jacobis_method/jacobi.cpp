@@ -1,5 +1,3 @@
-#include <cmath>
-#include <iostream>
 #include "jacobi.h"
 
 namespace jacobi {
