@@ -91,3 +91,32 @@ void gauleg::gauleg(double x1, double x2, double x[], double w[], int n)
       *(w_high--) = *(w_low++);
   }
 } // End_ function gauleg()
+
+/*
+double gauss_legendre(double a, double b, double *r, double *u, int n) {
+  double intgauss {0}; 
+  gauleg::gauleg(a, b, r, u, n);
+  
+  //   evaluate the integral with the Gauss-Legendre method
+  //   Note that we initialize the sum. Here brute force gauleg
+  //   with same array, x, for all directions in 6D:
+  
+  for ( int i1 = 0;  i1 < n; i1++) {
+    for ( int i2 = 0; i2 < n; i2++) {
+      for (int i3 = 0; i3 < n; i3++) {
+	for (int j1 = 0; j1 < n; j1++) {
+	  for (int j2 = 0; j2 < n; j2++) {
+	    for (int j3 = 0; j3 < n; j3++) {
+	      double term = 1.0;
+	      term *= gauleg::func_6D(r[i1],r[i2],r[i3],r[j1],r[j2],r[j3]);
+	      term *= u[i1]*u[i2]*u[i3]*u[j1]*u[j2]*u[j3];
+	      intgauss += term;
+	    }
+	  }
+	}
+      }
+    }
+  }
+  return intgauss;
+}
+*/
