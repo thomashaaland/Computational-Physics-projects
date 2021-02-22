@@ -21,6 +21,8 @@ int main()
   // Initial read in of some numbers:
   int n;
   int A[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};//{10,15,20,25,30,35,40}; // Values of n to be tested 
+  int size_of_A = sizeof(A)/sizeof(A[0]);
+  
   double a, b; // Limits of the integral in Cartesian coordinates
   double const  pi = 3.14159265359;
   double exact_integral = 5*pi*pi/256; // Exact value of the integral to be evaluated
@@ -42,16 +44,15 @@ int main()
   ofile << std::setiosflags(std::ios::showpoint | std::ios::uppercase);
   ofile << " Integration limits in each dimension: a = " << a << " and b = " << b << std::endl;
   ofile << " n:        Result with Gauss-Legendre:      Exact result:       Relative error:     Calculation time [s]:" << std::endl;
-  std::cout << "File created. Looping over " << sizeof(A)/sizeof(A[0]) << " values" << std::endl;
+  std::cout << "File created. Looping over " << size_of_A << " values" << std::endl;
   // loop over all values of n:
-  for (int l=0; l < sizeof(A)/sizeof(A[0]); l++) {
+  for (int l=0; l < size_of_A; l++) {
     n = A[l];
     // trying the 6D integral with Gauss-Legendre method:
     r = new double [n];
     u = new double [n];
     int_gauss = 0.;
     calculation_time = 0.0;
-    
     gauleg::gauleg(a, b, r, u, n);
     
     //   evaluate the integral with the Gauss-Legendre method
@@ -59,7 +60,7 @@ int main()
     //   with same array, x, for all directions in 6D:
     clock_t start, finish;
     start = clock();
-    std::cout << "\r" << (int)((double)(l+1)/(sizeof(A)/sizeof(A[0]))*100) << "% complete" << std::flush;
+    std::cout << "\r" << (int)((double)(l+1)/(size_of_A)*100) << "% complete" << std::flush;
 
     for ( int i1 = 0;  i1 < n; i1++) {
       for ( int i2 = 0; i2 < n; i2++) {
