@@ -85,19 +85,38 @@ void gauleg::gauleg(double x1, double x2, double x[], double w[], int n)
 } // End_ function gauleg()
 
 double gauleg::gauss_legendre(double a, double b, double *r, double *u, int n) {
-  double intgauss {0}; 
+  double intgauss = 0; 
   gauleg::gauleg(a, b, r, u, n);
   
   //   evaluate the integral with the Gauss-Legendre method
   //   Note that we initialize the sum. Here brute force gauleg
   //   with same array, x, for all directions in 6D:
+  std::vector<double> rij;
+  rij.reserve(6);
+  std::vector<double> uij;
+  uij.reserve(6);
   
-  for ( int i1 = 0;  i1 < n; i1++) {
+#pragma omp parallel for reduction(+:intgauss)
+  for (int i1 = 0;  i1 < n; i1++) {
+    rij[0] = r[i1];
+    uij[0] = u[i1];
     for ( int i2 = 0; i2 < n; i2++) {
+      rij[1] = r[i2];
+      uij[1] = u[i2];
       for (int i3 = 0; i3 < n; i3++) {
+	rij[2] = r[i3];
+	uij[2] = u[i3];
 	for (int j1 = 0; j1 < n; j1++) {
+	  rij[3] = r[j1];
+	  uij[3] = u[j1];
 	  for (int j2 = 0; j2 < n; j2++) {
+	    rij[4] = r[j2];
+	    uij[4] = u[j2];
 	    for (int j3 = 0; j3 < n; j3++) {
+	      rij[5] = r[j3];
+	      uij[5] = r[j3];
+	      
+	      // Original
 	      double term = 1.0;
 	      term *= gauleg::func_6D(r[i1],r[i2],r[i3],r[j1],r[j2],r[j3]);
 	      term *= u[i1]*u[i2]*u[i3]*u[j1]*u[j2]*u[j3];
@@ -110,4 +129,3 @@ double gauleg::gauss_legendre(double a, double b, double *r, double *u, int n) {
   }
   return intgauss;
 }
-
