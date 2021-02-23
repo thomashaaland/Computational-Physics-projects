@@ -1,4 +1,14 @@
 #pragma once
+#include <thread>
+#include <cmath>
+#include <cmath>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 // Definitions
 #define EPS 3.0e-14

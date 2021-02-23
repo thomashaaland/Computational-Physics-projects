@@ -1,11 +1,3 @@
-#include <cmath>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <cmath>
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
 #include "gauleg.h"
 
 // Help function for func_6D.
