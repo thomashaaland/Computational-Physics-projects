@@ -10,4 +10,4 @@ main.o :
 gauleg.o :
 	$(CXX) -c gauleg.cpp
 clean:
-	rm -f core $(PROG) $(OBJS) $(OUT)
+	rm -f core $(PROG) $(OBJS)
