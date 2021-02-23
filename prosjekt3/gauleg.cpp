@@ -92,8 +92,7 @@ void gauleg::gauleg(double x1, double x2, double x[], double w[], int n)
   }
 } // End_ function gauleg()
 
-/*
-double gauss_legendre(double a, double b, double *r, double *u, int n) {
+double gauleg::gauss_legendre(double a, double b, double *r, double *u, int n) {
   double intgauss {0}; 
   gauleg::gauleg(a, b, r, u, n);
   
@@ -119,4 +118,4 @@ double gauss_legendre(double a, double b, double *r, double *u, int n) {
   }
   return intgauss;
 }
-*/
+
