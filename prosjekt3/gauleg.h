@@ -1,5 +1,4 @@
 #pragma once
-#include <thread>
 #include <cmath>
 #include <cmath>
 #include <fstream>
@@ -7,7 +6,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <thread>
 #include <time.h>
+#include <vector>
 
 
 // Definitions
@@ -23,4 +24,5 @@ namespace gauleg {
   double func_6D(double, double, double, double, double, double);
   double abs_dist(double, double, double, double, double, double);
   double gauss_legendre(double a, double b, double *r, double *u, int n);
+  void run(double &intgauss, std::vector<double> &r, std::vector<double> &u);
 }
