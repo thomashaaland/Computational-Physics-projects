@@ -10,7 +10,6 @@
 #include <time.h>
 #include <vector>
 
-
 // Definitions
 #define EPS 3.0e-14
 #define MAXIT 10
@@ -19,10 +18,9 @@
 
 namespace gauleg {
   //     Here we define various functions called by the main program:
-  void gauss_laguerre(double *, double *, int, double);
   void gauleg(double, double, double *, double *, int);
   double func_6D(double, double, double, double, double, double);
   double abs_dist(double, double, double, double, double, double);
-  double gauss_legendre(double a, double b, double *r, double *u, int n);
-  void run(double &intgauss, std::vector<double> &r, std::vector<double> &u);
+  double gauss_legendre(double x1, double x2, double *x, double *w, int n);
+  
 }
