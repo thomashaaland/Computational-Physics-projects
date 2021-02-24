@@ -1,0 +1,3 @@
+# Gauss-Legendre Quadrature approximation
+
+The [Gauss-Legendre](https://www.theochem.ru.nl/~pwormer/Knowino/knowino.org/wiki/Legendre-Gauss_Quadrature_formula.html#:~:text=The%20Legendre%2DGauss%20quadrature%20formula%20is%20a%20special%20case%20of,of%20the%20interval%20of%20integration. "Legendre-Gauss Quadrature formula") Quadrature formula for integration is one alternative among [many](https://en.wikipedia.org/wiki/Numerical_integration "Numerical integration"). Gauss-Legendre method of integration integrates polynomials exactly and is highly adaptable to higher dimensions.
