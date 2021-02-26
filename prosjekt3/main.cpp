@@ -25,6 +25,22 @@ int main()
   double int_gauss = 0.0;
   double relatative_error = 0.0;
   double calculation_time = 0.0;
+
+  // Inspect the chosen function
+  std::string inspect_path = "func_inspect.csv";
+  ofile.open(inspect_path);
+  //gauleg::func_inspect(gauleg::func_6D);
+  ofile << "X, val" << std::endl;
+  double X;
+  std::vector<double> args;
+  args.reserve(6);
+  for (int i = 0; i < 101; i++) {
+    X = 2*((double) i) / 101 - 1;
+    args = {X, 0, 0, 0, 0, 0};
+    ofile << X << ", " << gauleg::func_6D(args) << std::endl;
+  }
+  ofile.close();
+  
   std::string outfilename = "Gauss_Legendre_table.txt";
   //   reserve space in memory for vectors containing the mesh points
   //   weights and function values for the use of the gauss-legendre method
@@ -72,7 +88,7 @@ int main()
   std::cout << std::endl;
 
   ofile.close();
-
+  
   return 0;
 }  // end of main program
 

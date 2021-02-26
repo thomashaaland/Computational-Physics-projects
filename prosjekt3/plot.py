@@ -3,6 +3,11 @@ import seaborn as sns
 import  matplotlib.pyplot as plt
 
 def main():
+    func = pd.read_csv("func_inspect.csv")
+    print(func.head())
+    plt.plot(func.iloc[:,0], func.iloc[:,1])
+    plt.show()
+
     df = pd.read_csv("Gauss_Legendre_table.txt", header = 1)
     df = df.rename(columns = lambda x: x.strip())
     print(df.head())
