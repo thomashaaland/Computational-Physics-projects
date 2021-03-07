@@ -1,9 +1,9 @@
 #include "gauleg.h"
 
 // Inspect function. Requires two variables and a collapse of all other dimensions
-//template <typename ...ArgsT>
-void gauleg::func_inspect(double func(std::vector<double> &args)) {
-  ;
+template <typename T, typename... ArgsT>
+void gauleg::func_inspect(T var1, ArgsT... var2) {
+  std::cout << var1 << '\n';
 }
 
 // Help function for func_6D.
@@ -18,14 +18,15 @@ double gauleg::abs_dist(double x1, double y1, double z1, double x2, double y2, d
 
 // Six dimensional integrand to be integrated. 6D test function
 // We simply exclude the integration points where the integrand diverges.
-double gauleg::func_6D(std::vector<double> &args) {
+double gauleg::func_6D(double x1, double y1, double z1, double x2, double y2, double z2)
+{ //std::vector<double> &args) {
   //std::assert (args.size() == 6);
-  double x1 = args[0];
-  double y1 = args[1];
-  double z1 = args[2];
-  double x2 = args[3];
-  double y2 = args[4];
-  double z2 = args[5];
+  //double x1 = args[0];
+  //double y1 = args[1];
+  //double z1 = args[2];
+  //double x2 = args[3];
+  //double y2 = args[4];
+  //double z2 = args[5];
   double alpha = 2.0;
   double f_val = 0.0;
   double r1 = sqrt(x1*x1 + y1*y1 + z1*z1);
@@ -49,7 +50,7 @@ double gauleg::func_6D(std::vector<double> &args) {
 */
 void gauleg::gauleg(double x1, double x2, double x[], double w[], int n)
 {
-  int n_vars;
+  //int n_vars;
   int m,j,i;
   double z1,z,xm,xl,pp,p3,p2,p1;
   double const  pi = 3.14159265359;
@@ -123,8 +124,8 @@ double gauleg::gauss_legendre(double x1, double x2, double *x, double *w, int n)
 	    for (int j3 = 0; j3 < n; j3++) {	      
 	      // Original
 	      double term = 1.0;
-	      std::vector<double> args = {x[i1],x[i2],x[i3],x[j1],x[j2],x[j3]};
-	      term *= gauleg::func_6D(args);
+	      //std::vector<double> args = {x[i1],x[i2],x[i3],x[j1],x[j2],x[j3]};
+	      term *= gauleg::func_6D(x[i1],x[i2],x[i3],x[j1],x[j2],x[j3]);
 	      term *= w[i1]*w[i2]*w[i3]*w[j1]*w[j2]*w[j3];
 	      intgauss += term;
 	    }

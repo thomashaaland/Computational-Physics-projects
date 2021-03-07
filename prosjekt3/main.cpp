@@ -11,7 +11,6 @@ int main()
 {
   // Initial read in of some numbers:
   int n;
-  //int A[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 35, 40, 45};
   int k = 50;
   int A[k];
   for (int i = 1; i <= k; i++) {A[i-1] = i;}
@@ -26,6 +25,9 @@ int main()
   double relatative_error = 0.0;
   double calculation_time = 0.0;
 
+  //gauleg::func_inspect(1);
+  
+  /*
   // Inspect the chosen function
   std::string inspect_path = "func_inspect.csv";
   ofile.open(inspect_path);
@@ -36,10 +38,11 @@ int main()
   args.reserve(6);
   for (int i = 0; i < 101; i++) {
     X = 2*((double) i) / 101 - 1;
-    args = {X, 0, 0, 0, 0, 0};
-    ofile << X << ", " << gauleg::func_6D(args) << std::endl;
+    //args = {X, 0, 0, 0, 0, 0};
+    ofile << X << ", " << gauleg::func_6D(X, 0, 0, 0, 0, 0) << std::endl;
   }
   ofile.close();
+  */
   
   std::string outfilename = "Gauss_Legendre_table.txt";
   //   reserve space in memory for vectors containing the mesh points

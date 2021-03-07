@@ -1,7 +1,7 @@
 PROG = gauleg
 CXX = g++
 OBJS = gauleg.o main.o
-CXXFLAGS = -fopenmp
+CXXFLAGS = -fopenmp -Wall 
 OUT = Gauss_Legendre_table.txt
 
 gauleg : $(OBJS)
